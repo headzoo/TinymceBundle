@@ -30,6 +30,8 @@ class Configuration implements ConfigurationInterface
                     ->booleanNode('tinymce_jquery')->defaultFalse()->end()
                     // Set init to true to use callback on the event init
                     ->booleanNode('use_callback_tinymce_init')->defaultFalse()->end()
+                    // Set setup to true to use callback on the event setup
+                    ->booleanNode('use_callback_tinymce_setup')->defaultFalse()->end()
                     // Selector
                     ->scalarNode('selector')->defaultValue('.tinymce')->end()
                     // base url for content
