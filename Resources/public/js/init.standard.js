@@ -84,7 +84,17 @@ function initTinyMCE(options) {
                             editor.addButton(id, opts);
 
                         })(buttonId, clone(options.tinymce_buttons[buttonId]));
+                        
+                        if (options.use_callback_tinymce_setup) {
+                            var callback = window['callback_tinymce_setup'];
+                            if (typeof callback == 'function') {
+                                callback(editor);
+                            } else {
+                                alert('You have to create callback function: callback_tinymce_setup');
+                            }
+                        }
                     }
+                    
                     //Init Event
                     if (options.use_callback_tinymce_init) {
                         editor.on('init', function() {
